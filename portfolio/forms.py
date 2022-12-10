@@ -5,9 +5,6 @@ from django.contrib.auth.models import User
 
 # creating a form
 class NewProjectForm(forms.ModelForm):
-  # image = forms.FileField(label="Imágenes", widget=forms.ClearableFileInput(attrs={
-  #   'multiple': True
-  # }))
   description = forms.CharField(label="Descripción", widget=forms.Textarea())
   
   class Meta:
@@ -30,9 +27,7 @@ class NewProjectForm(forms.ModelForm):
     }
 
     widgets = {
-      # 'image': forms.FileInput(attrs={'class': 'form-control'}),
       'title': forms.TextInput(attrs={'class': 'form-control'}),
-      # 'description': forms.Textarea(attrs={'class': 'form-control'}),
       'tags': forms.TextInput(attrs={'class': 'form-control'}),
       'github': forms.TextInput(attrs={'class': 'form-control'})     
     }
