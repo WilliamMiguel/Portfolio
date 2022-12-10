@@ -50,7 +50,7 @@ def add_images_project(request, title = None):
                 project_images = ImageProject.objects.create(project = project, images = image)
                    
             messages.success(request, 'Imágenes agregadas')
-            return HttpResponseRedirect(reverse('project-details', args=["Eli"]))
+            return HttpResponseRedirect(reverse('project-details', args=[str(title)]))
         
         else:
             form = NewProjectForm()
