@@ -357,7 +357,7 @@ h6 {
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 80px;
+  font-size: 50px;
   font-family: 'Press Start 2P', cursive;
   color: #fff;
   text-align: center;
@@ -394,7 +394,7 @@ h6 {
 
 @media (max-width: 575px) {
   #hero h1 {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   #hero h2 {
@@ -1118,6 +1118,12 @@ section {
   text-align: center;
   padding: 20px 0;
   position: relative;
+}
+
+@media (max-width: 575px) {
+  #footer h3 {
+    font-size: 15px;
+  }
 }
 
 #footer::before {
