@@ -1,6 +1,6 @@
 from ipware import get_client_ip
 from django.shortcuts import render
-from portfolio.models import User
+from portfolio.models import Visitants
 
 BLACK_LIST = [
     '127.0.0.2'
@@ -13,6 +13,8 @@ class IPIsValid():
     def __call__(self, request):
         ip, private = get_client_ip(request)
 
+        visitant = Visitants.objects.create(visitant_ip = ip)
+        print(visitant)
         if ip in BLACK_LIST:
             return render(request, 'E404.html')
         else:

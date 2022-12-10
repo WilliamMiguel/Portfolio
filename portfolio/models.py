@@ -9,7 +9,6 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-
 class Project(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="projects")
     banner = models.ImageField(upload_to="portfolio/projects")
@@ -30,3 +29,9 @@ class ImageProject(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     def __str__(self):
         return self.project.title
+
+class Visitants(models.Model):
+    visitant_ip = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.visitant_ip
