@@ -3,7 +3,8 @@ from django.shortcuts import render
 from portfolio.models import Visitants
 
 BLACK_LIST = [
-    '127.0.0.2'
+    '127.0.0.2',
+    '190.235.32.92'
 ]
 
 class IPIsValid():
@@ -12,9 +13,7 @@ class IPIsValid():
 
     def __call__(self, request):
         ip, private = get_client_ip(request)
-
         visitant = Visitants.objects.create(visitant_ip = ip)
-        print(visitant)
         if ip in BLACK_LIST:
             return render(request, 'E404.html')
         else:
