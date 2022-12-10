@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Registrar usuario
+{% endblock %}
+
+{% block index %}
+<section id="hero" style="background: url('../static/img/register-bg.jpg') top center no-repeat; background-size: cover;">
+  <div class="hero-container">
+    <div style="text-align: center">
+      <form class="form-sigin" action="" method="POST">
+        <h1 class="h3 mb-3 fw-normal">Registrarse</h1>
+        {% csrf_token %}
+        <div class="form-floating">
+          <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required id ="id_username">
+          <label for="id_username">Usuario</label>
+        </div>
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email" name="email" placeholder="Email" required id ="id_email">
+          <label for="id_email">Email</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="password1" name="password1" placeholder="Contraseña" required id ="id_password1">
+          <label for="id_password1">Contraseña</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" name="password2" placeholder="Confirmar contraseña" required id = "id_password2">
+          <label for="id_password2">Confirmar contraseña</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Registrar</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Registrar Proyecto
+{% endblock %}
+
+{% block index %}
+<section id="hero">
+    <div class="hero-container">
+        <div style="text-align: center">
+            <h1 class="h3 mb-3 fw-normal">Registrar Proyecto</h1>
+            <form class="form-sigin" action="" method="POST" enctype="multipart/form-data">        
+                    {% csrf_token %}
+                    <div class="form-floating">
+                        <input type="file" class="form-control" id="banner" name="banner"
+                            placeholder="URL de la imagen del proyecto" required id="id_banner"
+                            style="height: 65px; padding-top: 2rem;">
+                        <label for="id_banner">Foto</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="title" name="title"
+                            placeholder="Título del proyecto" required id="id_title">
+                        <label for="id_title">Título</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea name="description" id="description" class="form-control" style="height: 150px;"
+                            required id="id_description"></textarea>
+                        <label for="id_description">Descripción</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="tags" name="tags"
+                            placeholder="Tags. Por ejemplo: HTML, CSS, Python, etc" required id="id_tags">
+                        <label for="id_tags">Tags</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="github" name="github"
+                            placeholder="URL de repositorio en GitHub" required id="id_github">
+                        <label for="id_github">URL de GitHub</label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
