@@ -357,7 +357,7 @@ h6 {
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 80px;
+  font-size: 70px;
   font-family: 'Press Start 2P', cursive;
   color: #fff;
   text-align: center;
@@ -394,7 +394,7 @@ h6 {
 
 @media (max-width: 575px) {
   #hero h1 {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   #hero h2 {
@@ -1120,6 +1120,12 @@ section {
   position: relative;
 }
 
+@media (max-width: 575px) {
+  #footer {
+    flex-direction: column;
+  }
+}
+
 #footer::before {
   content: "";
   position: absolute;
@@ -1144,11 +1150,24 @@ section {
   margin: 0px
 }
 
+@media (max-width: 575px) {
+  #footer h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+}
+
 #footer p {
   font-size: 20px;
   font-style: italic;
   padding: 0;
   margin: 0px
+}
+
+@media (max-width: 575px) {
+  #footer p {
+    font-size: 20px;
+  }
 }
 
 #footer .social-links {
