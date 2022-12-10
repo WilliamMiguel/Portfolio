@@ -32,6 +32,11 @@ class ImageProject(models.Model):
 
 class Visitants(models.Model):
     visitant_ip = models.CharField(max_length=50)
+    number_visits = models.IntegerField(default=0)
+    black_list = models.BooleanField(default=False)
 
     def __str__(self):
         return self.visitant_ip
+
+    def more_visits(self):
+        self.number_visits += 1
