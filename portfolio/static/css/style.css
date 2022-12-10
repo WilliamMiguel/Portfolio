@@ -1111,7 +1111,8 @@ section {
 #footer {
   background: url("../img/footercode-bg.jpg") top center no-repeat;
   background-size: cover;
-  display: flex;
+  /* display: flex; */
+  align-items: center;
   color: #fff;
   font-size: 12px;
   text-align: center;

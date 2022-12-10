@@ -7,19 +7,19 @@ Proyecto - {{project.title}}
 {% block header %}
 <header id="header" class="fixed-top d-flex justify-content-center align-items-center">
   <nav id="navbar" class="navbar">
-      <ul>
-        <li><a href="{% url 'index' %}">Inicio</a></li>
-        {% if request.user.is_authenticated %}
-        {% if request.user.username == "William" %}
-        <li><a class="nav-link scrollto" href="{{'add_images'}}">Agregar imágenes</a></li>
-        {% endif %}
-        <li><a class="nav-link scrollto" href="{% url 'logout' %}">Cerrar sesión</a></li>
-        {% else %}
-        <li><a class="nav-link scrollto" href="{% url 'login' %}">Iniciar sesión</a></li>
-        <li><a class="nav-link scrollto" href="{{'register'}}">Registrarse</a></li>
-        {% endif %}
-      </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
+    <ul>
+      <li><a href="{% url 'index' %}">Inicio</a></li>
+      {% if request.user.is_authenticated %}
+      {% if request.user.username == "William" %}
+      <li><a class="nav-link scrollto" href="{{'add_images'}}">Agregar imágenes</a></li>
+      {% endif %}
+      <li><a class="nav-link scrollto" href="{% url 'logout' %}">Cerrar sesión</a></li>
+      {% else %}
+      <li><a class="nav-link scrollto" href="{% url 'login' %}">Iniciar sesión</a></li>
+      <li><a class="nav-link scrollto" href="{{'register'}}">Registrarse</a></li>
+      {% endif %}
+    </ul>
+    <i class="bi bi-list mobile-nav-toggle"></i>
   </nav>
 </header>
 {% endblock %}
@@ -32,7 +32,7 @@ Proyecto - {{project.title}}
         <h2>{{project.title}}</h2>
       </div>
     </div>
-  </section>
+  </section><br><br>
 
   <section id="portfolio-details" class="portfolio-details">
     <div class="container">
@@ -40,15 +40,13 @@ Proyecto - {{project.title}}
         <div class="col-lg-8">
           <div class="portfolio-details-slider swiper">
             <div class="swiper-wrapper align-items-center">
+              {% for image in images_project %}
               <div class="swiper-slide">
-                <img src="assets/img/portfolio/portfolio-details-1.jpg" alt="">
+                <img src="{{image.images.url}}" alt="">
               </div>
-              <div class="swiper-slide">
-                <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
-              </div>
+              {% empty %}
+              <p>Sin imagenes</p>
+              {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
           </div>
@@ -59,7 +57,8 @@ Proyecto - {{project.title}}
             <ul>
               <li><strong>Cliente</strong>: Silabuz</li>
               <li><strong>Fecha del proyecto</strong>: {{project.timestamp}}</li>
-              <li><strong>Repositorio en GitHub</strong>: <a href="{{project.github}}" target="_blank" rel="noopener noreferrer">{{project.title}}</a></li>
+              <li><strong>Repositorio en GitHub</strong>: <a href="{{project.github}}" target="_blank"
+                  rel="noopener noreferrer">{{project.title}}</a></li>
             </ul>
           </div>
           <div class="portfolio-description">
@@ -69,9 +68,7 @@ Proyecto - {{project.title}}
             </p>
           </div>
         </div>
-
       </div>
-
     </div>
   </section>
 

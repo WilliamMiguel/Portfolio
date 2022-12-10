@@ -12,7 +12,6 @@ class Profile(models.Model):
 
 class Project(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="projects")
-    # image = models.ImageField(upload_to='portfolio/projects', blank=True)
     banner = models.ImageField(upload_to="portfolio/projects")
     title = models.TextField()
     description = models.TextField()

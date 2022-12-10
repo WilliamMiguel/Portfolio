@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     projects = Project.objects.all()
-    context = {'projects' : projects}
+    context = {'projects' : projects, 'count_projects': projects.count()}
     return render(request, 'index.html', context)
 
 @login_required
@@ -36,7 +36,8 @@ def new_project(request):
 
 def project_details(request, title = None):
     project = Project.objects.get(title = title)
-    context = {'project': project}
+    images_project = ImageProject.objects.filter(project = project.id)
+    context = {'project': project, 'images_project': images_project}
     return render(request, 'project_detail.html', context)
 
 @login_required
@@ -59,7 +60,6 @@ def add_images_project(request, title = None):
         return render(request, "add_images_project.html", context)
     else:
         return redirect('index')
-    # return render(request, 'add_images_project.html')
 
 def register(request):
     if request.method == "POST":
