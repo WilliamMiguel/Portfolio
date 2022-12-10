@@ -52,11 +52,8 @@ def add_images_project(request, title = None):
                    
             messages.success(request, 'Imágenes agregadas')
             return HttpResponseRedirect(reverse('project-details', args=[str(title)]))
-        
-        else:
-            form = NewProjectForm()
-    
-        context = {'form': form}
+
+        context = {'title': title}
         return render(request, "add_images_project.html", context)
     else:
         return redirect('index')
