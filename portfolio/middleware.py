@@ -10,12 +10,16 @@ class IPIsValid():
 
     def __call__(self, request):
         ip, private = get_client_ip(request)
-        visitant = Visitants.objects.filter(visitant_ip = ip)
-        if visitant in None:
+        visitant = Visitants.objects.filter(visitant_ip = ip).exists()
+        if visitant is False:
             visitant = Visitants.objects.create(visitant_ip = ip)
-            
+
+        visitant = Visitants.objects.filter(visitant_ip = ip)
+
         Visitants.objects.update(number_visits = F('number_visits') + 1)
+        
         if visitant[0].black_list is True:
             return render(request, 'E404.html')
         else:
             return self.get_response(request)
+        # return self.get_response(request)
