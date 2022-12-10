@@ -3,8 +3,6 @@ from django.shortcuts import render
 from portfolio.models import Visitants
 
 BLACK_LIST = [
-    '127.0.0.2',
-    '190.235.32.92'
 ]
 
 class IPIsValid():
