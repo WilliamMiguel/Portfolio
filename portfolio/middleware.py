@@ -1,6 +1,7 @@
 from ipware import get_client_ip
 from django.shortcuts import render
 from portfolio.models import Visitants
+from django.db.models import F
 
 
 class IPIsValid():
@@ -10,11 +11,8 @@ class IPIsValid():
     def __call__(self, request):
         ip, private = get_client_ip(request)
         visitant = Visitants.objects.filter(visitant_ip = ip)
-        visitant[0].more_visits()
-        print(visitant[0].number_visits)
+        Visitants.objects.update(number_visits = F('number_visits') + 1)
         if visitant[0].black_list is True:
             return render(request, 'E404.html')
-        # else:
-        #     return self.get_response(request)
-        
-        return self.get_response(request)
+        else:
+            return self.get_response(request)
