@@ -3,4 +3,3 @@ env
 myapp/__pycache__
 portfolio/__pycache__
 portfolio/migrations/__pycache__
-Procfile
