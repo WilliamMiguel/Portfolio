@@ -352,12 +352,12 @@ h6 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0 15px;
+  padding: 0 50px;
 }
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 70px;
+  font-size: 8vw;
   font-family: 'Press Start 2P', cursive;
   color: #fff;
   text-align: center;
@@ -394,7 +394,7 @@ h6 {
 
 @media (max-width: 575px) {
   #hero h1 {
-    font-size: 40px;
+    font-size: 6vw;
   }
 
   #hero h2 {
