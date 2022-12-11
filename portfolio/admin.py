@@ -1,5 +1,5 @@
 from django.contrib import admin
-from portfolio.models import Profile, Project, ImageProject
+from portfolio.models import Profile, Project, ImageProject,  Visitants
 
 # Register your models here.
 class ImageProjectAdmin(admin.TabularInline):
@@ -13,5 +13,6 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Profile)
 admin.site.register(ImageProject)
+admin.site.register(Visitants)
 
 

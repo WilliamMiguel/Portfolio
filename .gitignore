@@ -4,3 +4,5 @@ myapp/__pycache__
 portfolio/__pycache__
 portfolio/migrations/__pycache__
 formcontact.txt
+db.sqlite3
+media

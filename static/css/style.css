@@ -372,6 +372,10 @@ h6 {
   text-transform: uppercase;
 }
 
+#hero h3 {
+  font-size: calc(2.5rem + 0.6vw) !important;
+}
+
 #hero .btn-scroll {
   transition: 0.4s;
   color: rgba(255, 255, 255, 0.6);
@@ -392,9 +396,9 @@ h6 {
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 844px) {
   #hero h1 {
-    font-size: 6vw !important;
+    font-size: 8vw !important;
   }
 
   #hero h2 {
