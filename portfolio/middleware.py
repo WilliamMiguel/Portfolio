@@ -16,8 +16,8 @@ class IPIsValid():
 
         visitant = Visitants.objects.filter(visitant_ip = ip)
 
-        Visitants.objects.update(number_visits = F('number_visits') + 1)
-        
+        Visitants.objects.filter(visitant_ip = ip).update(number_visits = F('number_visits') + 1)
+
         if visitant[0].black_list is True:
             return render(request, 'E404.html')
         else:
