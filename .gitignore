@@ -6,3 +6,4 @@ portfolio/migrations/__pycache__
 formcontact.txt
 db.sqlite3
 media
+.env
